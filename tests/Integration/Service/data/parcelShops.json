@@ -1,0 +1,77 @@
+{
+  "ACSExecution_HasError": false,
+  "ACSExecutionErrorMessage": "",
+  "ACSOutputResponce": {
+    "ACSValueOutput": [
+      {
+        "error_message": null
+      }
+    ],
+    "ACSTableOutput": {
+      "Table_Data": [
+        {
+          "ACS_SHOP_COUNTRY_ID": 2,
+          "ACS_SHOP_COUNTRY_DESCR": "country desc",
+          "ACS_SHOP_AREA_ID": 0,
+          "ACS_SHOP_AREA_DESCR": "",
+          "ACS_SHOP_STATION_ID": "AB",
+          "ACS_SHOP_STATION_ID_EN": "ABC",
+          "ACS_SHOP_STATION_DESCR": "station desc",
+          "ACS_SHOP_BRANCH_ID": 1,
+          "ACS_SHOP_ADDRESS": "address",
+          "ACS_SHOP_ZIPCODE": "1234",
+          "ACS_SHOP_PHONES": "123123123",
+          "ACS_SHOP_FAX": "123123124",
+          "ACS_SHOP_WORKING_HOURS": "07:45-19:00",
+          "ACS_SHOP_WORKING_HOURS_SATURDAY": "08:45-13:00",
+          "ACS_SHOP_TRUCK_PICKUP_HOURS": "",
+          "ACS_SHOP_TRUCK_PICKUP_HOURS_SATURDAY": "",
+          "ACS_SHOP_LAT": "34.0",
+          "ACS_SHOP_LONG": "33.0",
+          "ACS_SHOP_DELIVERY_START_HOUR": "",
+          "ACS_SHOP_COORDINATES_VERIFIED": 1,
+          "ACS_SHOP_KIND": 1,
+          "ACS_SHOP_SERVICES": "services",
+          "ACS_SHOP_EMAIL": "test@email.com",
+          "ACS_SHOP_PAYMENT_TYPES": "types",
+          "ACS_SHOP_ID_CODE": "1234",
+          "ACS_SHOP_CITY": "city",
+          "ACS_SHOP_SMARTPOINT_KIND": "",
+          "ACS_SHOP_WORKING_HOURS_JSON": "",
+          "ACS_SHOP_MESSAGE": "message"
+        },
+        {
+          "ACS_SHOP_COUNTRY_ID": 2,
+          "ACS_SHOP_COUNTRY_DESCR": "country desc",
+          "ACS_SHOP_AREA_ID": 1,
+          "ACS_SHOP_AREA_DESCR": "",
+          "ACS_SHOP_STATION_ID": "BC",
+          "ACS_SHOP_STATION_ID_EN": "BCD",
+          "ACS_SHOP_STATION_DESCR": "station desc",
+          "ACS_SHOP_BRANCH_ID": 1,
+          "ACS_SHOP_ADDRESS": "address",
+          "ACS_SHOP_ZIPCODE": "6789",
+          "ACS_SHOP_PHONES": "654654654",
+          "ACS_SHOP_FAX": "654654653",
+          "ACS_SHOP_WORKING_HOURS": "07:45-16:00",
+          "ACS_SHOP_WORKING_HOURS_SATURDAY": "08:45-12:00",
+          "ACS_SHOP_TRUCK_PICKUP_HOURS": "",
+          "ACS_SHOP_TRUCK_PICKUP_HOURS_SATURDAY": "",
+          "ACS_SHOP_LAT": "38.0",
+          "ACS_SHOP_LONG": "32.0",
+          "ACS_SHOP_DELIVERY_START_HOUR": "",
+          "ACS_SHOP_COORDINATES_VERIFIED": 1,
+          "ACS_SHOP_KIND": 1,
+          "ACS_SHOP_SERVICES": "services",
+          "ACS_SHOP_EMAIL": "second_test@email.com",
+          "ACS_SHOP_PAYMENT_TYPES": "types",
+          "ACS_SHOP_ID_CODE": "6789",
+          "ACS_SHOP_CITY": "city",
+          "ACS_SHOP_SMARTPOINT_KIND": "",
+          "ACS_SHOP_WORKING_HOURS_JSON": "",
+          "ACS_SHOP_MESSAGE": "message"
+        }
+      ]
+    }
+  }
+}
