@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Answear\AcsBundle\ConfigProvider: ~
+    Answear\AcsBundle\Service\Client: ~
+    Answear\AcsBundle\Service\ParcelShopsService: ~
