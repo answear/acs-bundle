@@ -24,6 +24,13 @@ class AnswearAcsExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $definition = $container->getDefinition(ConfigProvider::class);
-        $definition->setArguments([]);
+        $definition->setArguments([
+            $config['apiKey'],
+            $config['companyId'],
+            $config['companyPassword'],
+            $config['userId'],
+            $config['userPassword'],
+            $config['language'],
+        ]);
     }
 }
