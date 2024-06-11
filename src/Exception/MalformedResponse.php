@@ -6,9 +6,6 @@ namespace Answear\AcsBundle\Exception;
 
 class MalformedResponse extends \RuntimeException
 {
-    /**
-     * @var mixed
-     */
     private $response;
 
     public function __construct($message, $response, ?\Throwable $previous = null)
