@@ -19,7 +19,7 @@ class ParcelShopsServiceTest extends TestCase
     use MockGuzzleTrait;
     use StationsResponseTrait;
 
-    private Client  $client;
+    private Client $client;
     private ConfigProvider $configProvider;
 
     public function setUp(): void
