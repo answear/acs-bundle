@@ -16,13 +16,16 @@ use Webmozart\Assert\Assert;
 
 class Client
 {
+    private const CONNECTION_TIMEOUT = 10;
+    private const TIMEOUT = 30;
+
     protected ConfigProvider $configProvider;
     protected ClientInterface $guzzle;
 
     public function __construct(ConfigProvider $configProvider, ?ClientInterface $client = null)
     {
         $this->configProvider = $configProvider;
-        $this->guzzle = $client ?? new \GuzzleHttp\Client();
+        $this->guzzle = $client ?? new \GuzzleHttp\Client(['timeout' => self::TIMEOUT, 'connect_timeout' => self::CONNECTION_TIMEOUT]);
     }
 
     public function request(Request $request): array
