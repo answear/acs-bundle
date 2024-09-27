@@ -12,6 +12,7 @@ use Answear\AcsBundle\Request\StationsRequest;
 use Answear\AcsBundle\Service\Client;
 use Answear\AcsBundle\Tests\MockGuzzleTrait;
 use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class ClientTest extends TestCase
@@ -37,15 +38,15 @@ class ClientTest extends TestCase
         );
 
         $this->client = new Client($configProvider, $this->setupGuzzleClient());
-        $this->stationsRequest = new StationsRequest($configProvider->getBaseInputParameters(), CountryIdEnum::cyprus());
+        $this->stationsRequest = new StationsRequest($configProvider->getBaseInputParameters(), CountryIdEnum::Cyprus);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function properResponse(): void
     {
-        $this->guzzleHandler->append(new Response(200, [], '{"ACSExecution_HasError":false,"ACSExecutionErrorMessage":"","ACSOutputResponce":{"ACSTableOutput":{}}}'));
+        $this->guzzleHandler->append(
+            new Response(200, [], '{"ACSExecution_HasError":false,"ACSExecutionErrorMessage":"","ACSOutputResponce":{"ACSTableOutput":{}}}')
+        );
 
         $result = $this->client->request($this->stationsRequest);
 
@@ -58,12 +59,12 @@ class ClientTest extends TestCase
         self::assertCount(1, $this->clientHistory);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function responseWithExecutionErrors(): void
     {
-        $this->guzzleHandler->append(new Response(200, [], '{"ACSExecution_HasError":true,"ACSExecutionErrorMessage":"error message","ACSOutputResponce":""}'));
+        $this->guzzleHandler->append(
+            new Response(200, [], '{"ACSExecution_HasError":true,"ACSExecutionErrorMessage":"error message","ACSOutputResponce":""}')
+        );
 
         $this->expectException(MalformedResponse::class);
         $this->expectExceptionMessage('error message');
@@ -71,9 +72,7 @@ class ClientTest extends TestCase
         $this->client->request($this->stationsRequest);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function responseWithoutOutputResponce(): void
     {
         $this->guzzleHandler->append(new Response(200, [], '{"ACSExecution_HasError":false,"ACSExecutionErrorMessage":""}'));
@@ -84,9 +83,7 @@ class ClientTest extends TestCase
         $this->client->request($this->stationsRequest);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function responseWithoutExecutionErrorMessage(): void
     {
         $this->guzzleHandler->append(new Response(200, [], '{"ACSExecution_HasError":false}'));
@@ -97,9 +94,7 @@ class ClientTest extends TestCase
         $this->client->request($this->stationsRequest);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function responseWithoutHasError(): void
     {
         $this->guzzleHandler->append(new Response(200, [], '{}'));
@@ -110,9 +105,7 @@ class ClientTest extends TestCase
         $this->client->request($this->stationsRequest);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function responseWithoutArray(): void
     {
         $this->guzzleHandler->append(new Response(200, [], '"result":[]'));
@@ -123,9 +116,7 @@ class ClientTest extends TestCase
         $this->client->request($this->stationsRequest);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function serviceUnavailable(): void
     {
         $this->guzzleHandler->append(new Response(500, [], '{}'));

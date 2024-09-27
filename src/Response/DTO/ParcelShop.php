@@ -6,80 +6,33 @@ namespace Answear\AcsBundle\Response\DTO;
 
 use Webmozart\Assert\Assert;
 
-class ParcelShop
+readonly class ParcelShop
 {
-    private int $countryId;
-    private string $countryDescription;
-    private int $areaId;
-    private string $areaDescription;
-    private string $stationId;
-    private string $stationIdEn;
-    private string $stationDescription;
-    private int $branchId;
-    private string $workingHours;
-    private string $workingHoursSaturday;
-    private string $truckPickupHours;
-    private string $truckPickupHoursSaturday;
-    private string $deliveryStartHour;
-    private int $coordinatesVerified;
-    private int $kind;
-    private string $services;
-    private string $paymentTypes;
-    private string $idCode;
-    private string $smartpointKind;
-    private string $workingHoursJson;
-    private string $message;
-    private Address $address;
-    private Coordinates $coordinates;
-
     public function __construct(
-        int $countryId,
-        string $countryDescription,
-        int $areaId,
-        string $areaDescription,
-        string $stationId,
-        string $stationIdEn,
-        string $stationDescription,
-        int $branchId,
-        string $workingHours,
-        string $workingHoursSaturday,
-        string $truckPickupHours,
-        string $truckPickupHoursSaturday,
-        string $deliveryStartHour,
-        int $coordinatesVerified,
-        int $kind,
-        string $services,
-        string $paymentTypes,
-        string $idCode,
-        string $smartpointKind,
-        string $workingHoursJson,
-        string $message,
-        Address $address,
-        Coordinates $coordinates
+        public int $countryId,
+        public string $countryDescription,
+        public int $areaId,
+        public string $areaDescription,
+        public string $stationId,
+        public string $stationIdEn,
+        public string $stationDescription,
+        public int $branchId,
+        public string $workingHours,
+        public string $workingHoursSaturday,
+        public string $truckPickupHours,
+        public string $truckPickupHoursSaturday,
+        public string $deliveryStartHour,
+        public int $coordinatesVerified,
+        public int $kind,
+        public string $services,
+        public string $paymentTypes,
+        public string $idCode,
+        public string $smartpointKind,
+        public string $workingHoursJson,
+        public string $message,
+        public Address $address,
+        public Coordinates $coordinates,
     ) {
-        $this->countryId = $countryId;
-        $this->countryDescription = $countryDescription;
-        $this->areaId = $areaId;
-        $this->areaDescription = $areaDescription;
-        $this->stationId = $stationId;
-        $this->stationIdEn = $stationIdEn;
-        $this->stationDescription = $stationDescription;
-        $this->branchId = $branchId;
-        $this->workingHours = $workingHours;
-        $this->workingHoursSaturday = $workingHoursSaturday;
-        $this->truckPickupHours = $truckPickupHours;
-        $this->truckPickupHoursSaturday = $truckPickupHoursSaturday;
-        $this->deliveryStartHour = $deliveryStartHour;
-        $this->coordinatesVerified = $coordinatesVerified;
-        $this->kind = $kind;
-        $this->services = $services;
-        $this->paymentTypes = $paymentTypes;
-        $this->idCode = $idCode;
-        $this->smartpointKind = $smartpointKind;
-        $this->workingHoursJson = $workingHoursJson;
-        $this->message = $message;
-        $this->address = $address;
-        $this->coordinates = $coordinates;
     }
 
     public static function fromArray(array $parcelShopArray): self
@@ -131,120 +84,5 @@ class ParcelShop
             Address::fromArray($parcelShopArray),
             Coordinates::fromArray($parcelShopArray)
         );
-    }
-
-    public function getCountryId(): int
-    {
-        return $this->countryId;
-    }
-
-    public function getCountryDescription(): string
-    {
-        return $this->countryDescription;
-    }
-
-    public function getAreaId(): int
-    {
-        return $this->areaId;
-    }
-
-    public function getAreaDescription(): string
-    {
-        return $this->areaDescription;
-    }
-
-    public function getStationId(): string
-    {
-        return $this->stationId;
-    }
-
-    public function getStationIdEn(): string
-    {
-        return $this->stationIdEn;
-    }
-
-    public function getStationDescription(): string
-    {
-        return $this->stationDescription;
-    }
-
-    public function getBranchId(): int
-    {
-        return $this->branchId;
-    }
-
-    public function getWorkingHours(): string
-    {
-        return $this->workingHours;
-    }
-
-    public function getWorkingHoursSaturday(): string
-    {
-        return $this->workingHoursSaturday;
-    }
-
-    public function getTruckPickupHours(): string
-    {
-        return $this->truckPickupHours;
-    }
-
-    public function getTruckPickupHoursSaturday(): string
-    {
-        return $this->truckPickupHoursSaturday;
-    }
-
-    public function getDeliveryStartHour(): string
-    {
-        return $this->deliveryStartHour;
-    }
-
-    public function getCoordinatesVerified(): int
-    {
-        return $this->coordinatesVerified;
-    }
-
-    public function getKind(): int
-    {
-        return $this->kind;
-    }
-
-    public function getServices(): string
-    {
-        return $this->services;
-    }
-
-    public function getPaymentTypes(): string
-    {
-        return $this->paymentTypes;
-    }
-
-    public function getIdCode(): string
-    {
-        return $this->idCode;
-    }
-
-    public function getSmartpointKind(): string
-    {
-        return $this->smartpointKind;
-    }
-
-    public function getWorkingHoursJson(): string
-    {
-        return $this->workingHoursJson;
-    }
-
-    public function getMessage(): string
-    {
-        return $this->message;
-    }
-
-    public function getAddress(): Address
-    {
-        return $this->address;
-    }
-
-    public function getCoordinates(): Coordinates
-    {
-        return $this->coordinates;
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Answear\AcsBundle\Tests\Unit;
 
 use Answear\AcsBundle\ConfigProvider;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class ConfigProviderTest extends TestCase
@@ -25,9 +26,7 @@ class ConfigProviderTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function returnsCorrectRequestHeaders(): void
     {
         self::assertSame(
@@ -39,9 +38,7 @@ class ConfigProviderTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function returnCorrectBaseInputParameters(): void
     {
         self::assertEquals(
@@ -52,6 +49,7 @@ class ConfigProviderTest extends TestCase
                 'User_Password' => 'userPassword',
                 'language' => 'EN',
             ],
-            $this->configProvider->getBaseInputParameters()->toArray());
+            $this->configProvider->getBaseInputParameters()->toArray()
+        );
     }
 }

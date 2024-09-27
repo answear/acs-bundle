@@ -12,6 +12,7 @@ use Answear\AcsBundle\Tests\MockGuzzleTrait;
 use Answear\AcsBundle\Tests\Unit\Response\StationsResponseTrait;
 use Answear\AcsBundle\Tests\Util\FileTestUtil;
 use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class ParcelShopsServiceTest extends TestCase
@@ -36,12 +37,9 @@ class ParcelShopsServiceTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function successfulGetParcelShop(): void
     {
-        $parcelShops = FileTestUtil::decodeJsonFromFile(__DIR__ . '/data/parcelShops.json');
         $this->client = $this->getClient();
         $service = $this->getService();
 
@@ -49,7 +47,7 @@ class ParcelShopsServiceTest extends TestCase
             new Response(200, [], FileTestUtil::getFileContents(__DIR__ . '/data/parcelShops.json'))
         );
 
-        $result = $service->getList(CountryIdEnum::cyprus());
+        $result = $service->getList(CountryIdEnum::Cyprus);
 
         $this->assertEquals($this->getExpectedParcelShops(), $result);
     }

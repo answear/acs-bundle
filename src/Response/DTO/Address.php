@@ -6,29 +6,16 @@ namespace Answear\AcsBundle\Response\DTO;
 
 use Webmozart\Assert\Assert;
 
-class Address
+readonly class Address
 {
-    private string $street;
-    private string $zipCode;
-    private string $city;
-    private string $phones;
-    private string $email;
-    private string $fax;
-
     public function __construct(
-        string $street,
-        string $zipCode,
-        string $city,
-        string $phones,
-        string $email,
-        string $fax
+        public string $street,
+        public string $zipCode,
+        public string $city,
+        public string $phones,
+        public string $email,
+        public string $fax,
     ) {
-        $this->street = $street;
-        $this->zipCode = $zipCode;
-        $this->city = $city;
-        $this->phones = $phones;
-        $this->email = $email;
-        $this->fax = $fax;
     }
 
     public static function fromArray(array $parcelShopArray): self
@@ -48,35 +35,5 @@ class Address
             $parcelShopArray['ACS_SHOP_EMAIL'],
             $parcelShopArray['ACS_SHOP_FAX']
         );
-    }
-
-    public function getZipCode(): string
-    {
-        return $this->zipCode;
-    }
-
-    public function getCity(): string
-    {
-        return $this->city;
-    }
-
-    public function getStreet(): string
-    {
-        return $this->street;
-    }
-
-    public function getFax(): ?string
-    {
-        return $this->fax;
-    }
-
-    public function getPhones(): ?string
-    {
-        return $this->phones;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
     }
 }

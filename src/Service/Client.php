@@ -19,12 +19,12 @@ class Client
     private const CONNECTION_TIMEOUT = 10;
     private const TIMEOUT = 30;
 
-    protected ConfigProvider $configProvider;
     protected ClientInterface $guzzle;
 
-    public function __construct(ConfigProvider $configProvider, ?ClientInterface $client = null)
-    {
-        $this->configProvider = $configProvider;
+    public function __construct(
+        protected ConfigProvider $configProvider,
+        ?ClientInterface $client = null,
+    ) {
         $this->guzzle = $client ?? new \GuzzleHttp\Client(['timeout' => self::TIMEOUT, 'connect_timeout' => self::CONNECTION_TIMEOUT]);
     }
 
