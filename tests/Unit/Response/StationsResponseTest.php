@@ -6,15 +6,14 @@ namespace Answear\AcsBundle\Tests\Unit\Response;
 
 use Answear\AcsBundle\Exception\MalformedResponse;
 use Answear\AcsBundle\Response\StationsResponse;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class StationsResponseTest extends TestCase
 {
     use StationsResponseTrait;
 
-    /**
-     * @test
-     */
+    #[Test]
     public function correctlyReturnsStationsResponse(): void
     {
         $stationsResponse = StationsResponse::fromArray($this->getArrayForStationsResponse());
@@ -25,33 +24,27 @@ class StationsResponseTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function throwsErrorWhenResponseWithoutACSTableOutput(): void
     {
         $this->expectException(MalformedResponse::class);
-        $this->expectErrorMessage('Expected the key "ACSTableOutput" to exist.');
+        $this->expectExceptionMessage('Expected the key "ACSTableOutput" to exist.');
         StationsResponse::fromArray([]);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function throwsErrorWhenResponseWithoutTableData(): void
     {
         $this->expectException(MalformedResponse::class);
-        $this->expectErrorMessage('Expected the key "Table_Data" to exist.');
+        $this->expectExceptionMessage('Expected the key "Table_Data" to exist.');
         StationsResponse::fromArray(['ACSTableOutput' => []]);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function throwsErrorWhenResponseWithIncorrectItems(): void
     {
         $this->expectException(MalformedResponse::class);
-        $this->expectErrorMessage('Expected the key "ACS_SHOP_COUNTRY_ID');
+        $this->expectExceptionMessage('Expected the key "ACS_SHOP_COUNTRY_ID');
         StationsResponse::fromArray(
             [
                 'ACSTableOutput' => [

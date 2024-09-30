@@ -11,11 +11,9 @@ use Answear\AcsBundle\Response\StationsResponse;
 
 class ParcelShopsService
 {
-    private Client $client;
-
-    public function __construct(Client $client)
-    {
-        $this->client = $client;
+    public function __construct(
+        private Client $client,
+    ) {
     }
 
     /**
@@ -25,6 +23,6 @@ class ParcelShopsService
     {
         $response = $this->client->request(new StationsRequest($this->client->getBaseInputParameters(), $countryId, $kind));
 
-        return StationsResponse::fromArray($response)->getParcelShops();
+        return StationsResponse::fromArray($response)->parcelShops;
     }
 }

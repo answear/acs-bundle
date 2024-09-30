@@ -5,13 +5,12 @@ declare(strict_types=1);
 namespace Answear\AcsBundle\Tests\Unit\Request;
 
 use Answear\AcsBundle\Request\BaseInputParameters;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class BaseInputParametersTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function returnCorrectArray(): void
     {
         $baseInputParameters = new BaseInputParameters('companyId', 'companyPassword', 'userId', 'userPassword', 'EN');

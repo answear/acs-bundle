@@ -11,17 +11,12 @@ use Webmozart\Assert\Assert;
 class StationsResponse
 {
     /**
-     * @var ParcelShop[]
-     */
-    private array $parcelShops;
-
-    /**
      * @param ParcelShop[] $parcelShops
      */
-    public function __construct(array $parcelShops)
-    {
+    public function __construct(
+        public array $parcelShops,
+    ) {
         Assert::allIsInstanceOf($parcelShops, ParcelShop::class);
-        $this->parcelShops = $parcelShops;
     }
 
     public static function fromArray(array $response): StationsResponse
@@ -43,13 +38,5 @@ class StationsResponse
         } catch (\Throwable $e) {
             throw new MalformedResponse($e->getMessage(), $response, $e);
         }
-    }
-
-    /**
-     * @return ParcelShop[]
-     */
-    public function getParcelShops(): array
-    {
-        return $this->parcelShops;
     }
 }

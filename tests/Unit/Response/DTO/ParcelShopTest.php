@@ -7,6 +7,7 @@ namespace Answear\AcsBundle\Tests\Unit\Response\DTO;
 use Answear\AcsBundle\Response\DTO\Address;
 use Answear\AcsBundle\Response\DTO\ParcelShop;
 use Answear\AcsBundle\Tests\Unit\Response\StationsResponseTrait;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use Webmozart\Assert\InvalidArgumentException;
 
@@ -14,9 +15,7 @@ class ParcelShopTest extends TestCase
 {
     use StationsResponseTrait;
 
-    /**
-     * @test
-     */
+    #[Test]
     public function correctlyReturnsParcelShop(): void
     {
         $parcelShop = ParcelShop::fromArray($this->getCorrectResponseItemArray());
@@ -27,9 +26,7 @@ class ParcelShopTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function throwsErrorWhenDataNotComplete(): void
     {
         $this->expectException(InvalidArgumentException::class);
